@@ -34,6 +34,7 @@ export default function WorkoutBanner() {
             src="/banner.png"
             alt="Workout Equipment Illustration"
             fill
+            sizes="(max-width: 1200px) 100vw, 1200px"
             className="object-contain object-right"
             priority
           />

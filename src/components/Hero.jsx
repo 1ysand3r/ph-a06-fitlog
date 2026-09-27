@@ -19,17 +19,17 @@ export default function WorkoutBanner() {
           
           <p className="text-gray-400 text-base sm:text-lg max-w-xl font-normal leading-relaxed mt-1">
             FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
-            into today&apos;s plan, and watch the week&apos;s work add up.
+            into today's plan, and watch the week's work add up.
           </p>
           <Link href="/#library">
-          <button className="btn bg-[#c084fc] hover:bg-[#a855f7] border-none text-black font-extrabold text-sm uppercase px-6 min-h-[2.75rem] h-[2.75rem] rounded-lg mt-4 bg-[#a3e635] hover:bg-[#84cc16]">
+          <button className="btn bg-[#c084fc] hover:bg-[#a855f7] border-none text-black font-extrabold text-sm uppercase px-6 min-h-11 h-11 rounded-lg mt-4 bg-[#a3e635] hover:bg-[#84cc16]">
             Browse Workouts
           </button>
           </Link>
         </div>
 
         {/* Right Image Column */}
-        <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-[380px] w-full flex items-center justify-center lg:justify-end">
+        <div className="lg:col-span-5 relative min-h-75 lg:min-h-95 w-full flex items-center justify-center lg:justify-end">
           <Image
             src="/banner.png"
             alt="Workout Equipment Illustration"

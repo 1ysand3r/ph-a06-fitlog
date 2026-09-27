@@ -8,12 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "daisyui": "^5.7.46",
     "next": "16.3.6",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4"
+    "@tailwindcss/postcss": "^4.3.3",
+    "tailwindcss": "^4.3.3"
   }
 }

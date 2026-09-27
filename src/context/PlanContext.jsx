@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const PlanContext = createContext();
 
@@ -25,29 +26,39 @@ export function PlanProvider({ children }) {
     localStorage.setItem('fitlog_saved', JSON.stringify(saved));
   }, [saved]);
 
-  // Actions
+  // Actions with Toasts
   const addToPlan = (workout) => {
     if (plan.length >= 5) {
-      alert("Cap of five lifts for today reached!");
+      toast.error("Cap of five lifts for today reached!");
       return;
     }
-    if (!plan.some((item) => item.id === workout.id)) {
-      setPlan((prev) => [...prev, workout]);
+    if (plan.some((item) => item.id === workout.id)) {
+      toast.info(`${workout.name} is already in today's plan`);
+      return;
     }
+    setPlan((prev) => [...prev, workout]);
+    toast.success(`Added ${workout.name} to Today's Plan!`);
   };
 
   const addToSaved = (workout) => {
-    if (!saved.some((item) => item.id === workout.id)) {
-      setSaved((prev) => [...prev, workout]);
+    if (saved.some((item) => item.id === workout.id)) {
+      toast.info(`${workout.name} is already saved`);
+      return;
     }
+    setSaved((prev) => [...prev, workout]);
+    toast.success(`Saved ${workout.name} for later!`);
   };
 
   const removeFromPlan = (id) => {
-    setPlan((prev) => prev.filter((item) => item.id !== id));
+    const item = plan.find((i) => i.id === id);
+    setPlan((prev) => prev.filter((i) => i.id !== id));
+    if (item) toast.info(`Removed ${item.name} from Today's Plan`);
   };
 
   const removeFromSaved = (id) => {
-    setSaved((prev) => prev.filter((item) => item.id !== id));
+    const item = saved.find((i) => i.id === id);
+    setSaved((prev) => prev.filter((i) => i.id !== id));
+    if (item) toast.info(`Removed ${item.name} from Saved`);
   };
 
   return (
